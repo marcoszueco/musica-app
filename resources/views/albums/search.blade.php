@@ -1,3 +1,4 @@
+<?php
 @extends('layouts.app')
 
 @section('content')
@@ -12,19 +13,6 @@
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
-
-        <div>
-            <p>Filtro</p>
-            <form action="{{ route('albums.search') }}" method="post">
-                <input type="checkbox" name="filter_by" value="title"><label>Titulo</label>
-                <input type="text" name="textTitle"><br>
-                <input type="checkbox" name="filter_by" value="genre"><label>Genero</label>
-                <input type="text" name="textGenre"><br>
-                <input type="checkbox" name="filter_by" value="year"><label>Año lanzamiento:</label><label>Anterior a:</label><input type="number" name="startYear"><label>Posterior a:</label><input type="number" name="endYear"><br>
-                <input type="checkbox" name="filter_by" value="rating"><label>Valoracion:</label><label>Superior o igual que:</label><input type="number" name="searchRating"><br>
-                <input type="submit">
-            </form>
-        </div>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @forelse($albums as $album)
